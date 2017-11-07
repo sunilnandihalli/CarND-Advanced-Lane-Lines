@@ -64,7 +64,7 @@ To demonstrate this step, I will describe how I apply the distortion correction 
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines 74 through 83 in `advanced_lane.ipynb`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
 ![alt text][image4]
-![alt text][image5]
+
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -87,7 +87,7 @@ This resulted in the following source and destination points:
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
 ![alt text][image9]
-
+![alt text][image5]
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 Then I transformed the unwarped image to HLS space. Thresholded the s-channel to the range 90-255 which resulted in a binary image showing pixels which could potentially be the lane-line. I took the original image and transformed it into gray-scale and applied gradient in the x direction and scaled the gradients to the range 0-255. I thresholded the gradients with the range 20-100. This again resulted in a binary image. I combined the previous two binary images by ORing each pixel-location. This resulted in a combined binary image. The corresponding code is in the first cell of the advanced_lane.ipynb between lines 74-83
