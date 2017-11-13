@@ -126,6 +126,5 @@ Here's a [link to my video result](./myoutput/project_video_with_lane_region.mp4
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+I some how was not able to come close to the expected radius of curvature of 1 KM. But the lane lines seem to capture the lane boundaries quiet well as can be seen from the video. The tracking of the lane lines is not very robust in situations where there is shadow. It also confuses the dark region where the lane divider and road meet in the challenge video. It has confuses the change in the road-type to a lane boundary in the challenge video. In the harder challenge video, the lanes turn too fast and our usual approach of trying to detect lanes fails too easily due to rapidly varying lighting conditions. It has tough time tracking the lanes as their is a lot of dry foliage on the road covering the lane markings. The assumption that the road is flat-plane is way off from the reality for the harder challenging video.
+ Here, I propose some of the improvements that can be done to improve the robustness of the system. Currently I am maintaining the history of radii of curvature over the last couple of frames and using that to best-estimate the radius of curvature. This approach can be extended to make lane-tracking windowing procedure better. 
